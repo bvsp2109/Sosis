@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+    {% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload data</title>
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+<body>
+<form method="post" style="margin-top: 40px;margin-bottom: 3px;">
+    {% csrf_token %}
+    <div class="form-group col-md-4 mb-0" style="margin-left: 450px;margin-right: 300px">
+        {{ form.Name|as_crispy_field }}
+    </div>
+
+    <div class="form-group col-md-4 mb-0" style="margin-left: 450px">
+        {{ form.Email|as_crispy_field }}
+    </div>
+    <div class="form-group col-md-4 mb-0" style="margin-left: 450px">
+        {{ form.Aim|as_crispy_field }}
+    </div>
+    <div class="form-group col-md-4 mb-0" style="margin-left: 450px">
+        {{ form.Date|as_crispy_field }}
+    </div>
+
+    <input type="submit" name="Submit" class="btn btn-success" style="width: 100px;margin-top: 350px; margin-left: -600px">
+    <button type="button" class="btn btn-success" style="width: 100px;margin-top: 350px; text-decoration-color: white "><a href='/'>Back</a> </button>
+</form>
+</body>
+</html>

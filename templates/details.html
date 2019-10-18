@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+<form align="center">{% csrf_token %}
+    <table align="center">
+    <h3> <u>Table format</u></h3>
+        <tr>
+            <th><h4> Name</h4></th>
+            <th><h4> Email </h4></th>
+            <th><h4> Aim</h4></th>
+            <th><h4> Target Date</h4></th>
+
+
+        </tr>
+        {% for D in Data %}
+        <tr>
+            <a href="{{ course.get_absolute_url }}"></a>
+            <td>{{ D.Name }}&nbsp;&nbsp;</td>
+            <td>{{ D.Email }}&nbsp;&nbsp;</td>
+            <td>{{ D.Aim }}&nbsp;&nbsp;</td>
+            <td>{{ D.Date }}&nbsp;&nbsp;</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <li style="margin-left: 75%"><button type="submit" class="btn btn-success"><a href='/add/' style="color: white">Add Next Plan</a></button> </li>
+<h3><u>
+    Line format</u>
+</h3><br>
+
+     {% for D in Data %}
+         Hello  &nbsp;<b>'{{ D.Name }}'</b> &nbsp;
+         Your aim is   <b>&nbsp;'{{ D.Aim }}'</b>  &nbsp;
+         Target Date is  <b>&nbsp;'{{ D.Date }}'</b> &nbsp;<br><br>
+{% endfor %}
+    </form>
+</body>
+</html>
